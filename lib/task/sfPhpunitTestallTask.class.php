@@ -20,7 +20,7 @@ class sfPhpunitTestallTask extends sfBaseTask
 
         $this->addOptions(array(
             new sfCommandOption('kind',    'k', sfCommandOption::PARAMETER_OPTIONAL, 'The folder to test', ''),
-            new sfCommandOption('name',    'a', sfCommandOption::PARAMETER_REQUIRED, 'The test file name', 'AllPhpunitTests'),
+            new sfCommandOption('name',    'a', sfCommandOption::PARAMETER_REQUIRED, 'The test file name', 'AllTests'),
             new sfCommandOption('isolate', 'i', sfCommandOption::PARAMETER_NONE,     'Run tests in separate (parallel) processes'),
         ));
 

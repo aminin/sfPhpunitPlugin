@@ -52,7 +52,7 @@ class sfPhpunitCreateTestTask extends sfPhpunitCreateBaseTask
 		new sfCommandOption('model_path', 'p', sfCommandOption::PARAMETER_REQUIRED, 'Path to look for class files(deprecated, use class_path)', ''),
 		new sfCommandOption('class_path', 'l', sfCommandOption::PARAMETER_REQUIRED, 'Path to look for class files', ''),
 		new sfCommandOption('skip_methods', 's', sfCommandOption::PARAMETER_OPTIONAL, 'List of methods to skip (multiple methods separated by comma)', ''),
-		new sfCommandOption('alltests', 'a', sfCommandOption::PARAMETER_OPTIONAL, 'Create AllTests class file', 'AllPhpunitTests.php'),
+		new sfCommandOption('alltests', 'a', sfCommandOption::PARAMETER_OPTIONAL, 'Create AllTests class file', 'AllTests.php'),
 		new sfCommandOption('overwrite_alltests', null, sfCommandOption::PARAMETER_NONE, 'Flag if the contents of the AllTests class should be overwritten'),
 		new sfCommandOption('overwrite', 'w', sfCommandOption::PARAMETER_NONE, 'Overwrite existing test files (Default: no)'),
 		new sfCommandOption('verbose', 'v', sfCommandOption::PARAMETER_NONE, 'Print extra information'),
