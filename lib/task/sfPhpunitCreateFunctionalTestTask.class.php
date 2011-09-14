@@ -55,8 +55,8 @@ EOF;
 		$this->createBaseTestCaseClassFile($options, 'functional/BasePhpunitFunctionalTestCase', $options['base_test_name']);
 
 		// test files will be stored in
-		// test/phpunit/functional/{$application}/{$module}ActionsTest.php
-		$targetDir = sfConfig::get('sf_root_dir').'/test/phpunit/functional/'.$arguments['application'];
+		// test/functional/{$application}/{$module}ActionsTest.php
+		$targetDir = sfConfig::get('sf_root_dir').'/test/functional/' . $arguments['application'];
 		if (!file_exists($targetDir))
 		{
 			mkdir($targetDir, 0777, true);
