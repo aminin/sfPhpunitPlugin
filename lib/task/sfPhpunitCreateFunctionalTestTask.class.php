@@ -74,7 +74,11 @@ EOF;
 			'application' => $arguments['application']
 		);
 
-		$this->createFile($fileName, 'functional/PhpunitFunctionalTestCase', $vars, $options);
+		if ($this->createFile($fileName, 'functional/PhpunitFunctionalTestCase', $vars, $options))
+		{
+			$this->logSection('phpunit', sprintf('Created %s file.', $fileName));
+			return true;
+		}
 	}
 
 }

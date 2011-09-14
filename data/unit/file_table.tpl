@@ -1,10 +1,8 @@
 <?php
-require_once sfConfig::get('sf_test_dir').'/phpunit/BasePhpunitTestCase.class.php';
-
 /**
  * {testClassName}
  */
-class {testClassName} extends BasePhpunitTestCase
+class {testClassName} extends {baseTestName}
 {
 
     public function setup()

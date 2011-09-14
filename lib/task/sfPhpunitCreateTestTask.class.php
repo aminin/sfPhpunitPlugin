@@ -12,25 +12,25 @@ class sfPhpunitCreateTestTask extends sfPhpunitCreateBaseTask
 {
 	// list of methods to not create a test method.
 	private $skipMethods = array(
-    '__toString',
-    '__construct',
+		'__toString',
+		'__construct',
 	);
 
 	private $modelTypes = array(
-    'propel' => array(
-    'classFileSuffix' => '.php',
-    'default_model_path' => 'lib/model',
-    'default_connection' => 'propel',
-  	'default_target' => 'model',
-    'ignored_directory' => array('om', 'map'),
-	),
-    'doctrine' => array(
-    'classFileSuffix' => '.class.php',
-    'default_model_path' => 'lib/model/doctrine',
-    'default_connection' => 'doctrine',
-		'default_target' => 'model',
-    'ignored_directory' => array('om', 'map'),
-	),
+		'propel' => array(
+			'classFileSuffix' => '.php',
+			'default_model_path' => 'lib/model',
+			'default_connection' => 'propel',
+			'default_target' => 'model',
+			'ignored_directory' => array('om', 'map'),
+		),
+		'doctrine' => array(
+			'classFileSuffix' => '.class.php',
+			'default_model_path' => 'lib/model/doctrine',
+			'default_connection' => 'doctrine',
+			'default_target' => 'model',
+			'ignored_directory' => array('om', 'map'),
+		),
 	);
 
 	/**
@@ -313,7 +313,7 @@ EOF;
 			if ($method->getFileName() == $classFilePath && array_search($methodName, $this->skipMethods) === false)
 			{
 				$vars = array(
-            'methodName' => ucfirst($methodName),
+		        'methodName' => ucfirst($methodName),
 				);
 
 				$methodsOutput .= $this->renderTemplate($methodTemplate, $vars);
@@ -340,22 +340,20 @@ EOF;
 		}
 
 		$vars = array(
-    'application' => $arguments['application'],
-    'env' => $arguments['env'],
-    'target' => $arguments['target'],
-    'connection' => $arguments['connection'],
-    'testClassName' => $testClass,
-    'className' => $arguments['class'],
-    'methods' => $methodsOutput,
-    'baseTestName' => $arguments['base_test_name'],
-		// if we have a target (sub folder) defined, the test will be saved one level deeper
-    'relPath' => !empty($arguments['target'])? '/../..' : '/..'
-    );
+			'application'   => $arguments['application'],
+			'env'           => $arguments['env'],
+			'target'        => $arguments['target'],
+			'connection'    => $arguments['connection'],
+			'testClassName' => $testClass,
+			'className'     => $arguments['class'],
+			'methods'       => $methodsOutput,
+			'baseTestName'  => $arguments['base_test_name'],
+		);
 
-    if ($this->createFile($testFile, $tplFilename, $vars, $arguments))
-    {
-    	$this->logSection('phpunit', sprintf('Created test class %s for %s', $testClass, $className));
-    }
+		if ($this->createFile($testFile, $tplFilename, $vars, $arguments))
+		{
+			$this->logSection('phpunit', sprintf('Created test class %s for %s', $testClass, $className));
+		}
 
 	}
 

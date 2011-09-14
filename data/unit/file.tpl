@@ -1,16 +1,14 @@
 <?php
-require_once realpath(dirname(__FILE__).'{relPath}').'/{baseTestName}.class.php';
-
 /**
  * {testClassName}
  */
 class {testClassName} extends {baseTestName}
 {
 	/**
-	* {className}
-	*
-	* @var {className}
-	*/
+	 * {className}
+	 *
+	 * @var {className}
+	 */
 	protected $o;
 
 	protected function _start()
