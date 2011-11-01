@@ -56,7 +56,7 @@ EOF;
 
 		// test files will be stored in
 		// test/functional/{$application}/{$module}ActionsTest.php
-		$targetDir = sfConfig::get('sf_root_dir').'/test/functional/' . $arguments['application'];
+		$targetDir = sfConfig::get('sf_test_dir').'/functional/' . $arguments['application'];
 		if (!file_exists($targetDir))
 		{
 			mkdir($targetDir, 0777, true);
