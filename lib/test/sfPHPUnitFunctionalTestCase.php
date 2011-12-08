@@ -73,7 +73,7 @@ abstract class sfPHPUnitFunctionalTestCase extends myUnitTestCase
         try {
             parent::runTest();
         } catch (Exception $e) {
-            throw $this->_decorateExeption($e);
+            throw $this->_decorateException($e);
         }
     }
 
@@ -84,7 +84,7 @@ abstract class sfPHPUnitFunctionalTestCase extends myUnitTestCase
      * @param  Exception $e
      * @return Exception
      */
-    private function _decorateExeption(Exception $e)
+    private function _decorateException(Exception $e)
     {
         if (!$this->browser->getLastRequestUri()) {
             return $e;
@@ -93,16 +93,17 @@ abstract class sfPHPUnitFunctionalTestCase extends myUnitTestCase
         $className = get_class($e);
 
         if ($e instanceof PHPUnit_Framework_ExpectationFailedException) {
-            if (!$e->getCustomMessage()) {
+            /** @var $e PHPUnit_Framework_ExpectationFailedException */
+            if (!$e->getMessage()) {
                 return new $className(
-                    $this->_makeRequestErrorMessage($e->getDescription(), $e) . PHP_EOL,
+                    $this->_makeRequestErrorMessage($e->getMessage(), $e) . PHP_EOL,
                     $e->getComparisonFailure()
                 );
             } else {
                 return new $className(
-                    $e->getDescription(),
+                    $e->getMessage(),
                     $e->getComparisonFailure(),
-                    $this->_makeRequestErrorMessage($e->getCustomMessage(), $e) . PHP_EOL
+                    $this->_makeRequestErrorMessage($e->getMessage(), $e) . PHP_EOL
                 );
             }
 
